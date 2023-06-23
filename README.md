@@ -10,8 +10,8 @@ window info, than regular `xwindow` polybar module. Below is represented a
 demonstration of what `ixwindow` looks like in action:
 
 The fork improves the module with removing "Empty" where there is no window 
-focused and make the icon the closest to the title (with maybe a configurable 
-margin next to the title)
+focused and make the icon the closest to the title when title is in center
+(with maybe a configurable margin next to the title)
 
 <p align="center">
   <img src="assets/demo.gif" alt="animated" />
