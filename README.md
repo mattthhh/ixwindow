@@ -9,6 +9,10 @@ but also an icon for it. It also allows you more customization of printing
 window info, than regular `xwindow` polybar module. Below is represented a 
 demonstration of what `ixwindow` looks like in action:
 
+The fork improves the module with removing "Empty" where there is no window 
+focused and make the icon the closest to the title (with maybe a configurable 
+margin next to the title)
+
 <p align="center">
   <img src="assets/demo.gif" alt="animated" />
 </p>
@@ -29,7 +33,9 @@ as polybar's `tail = true`.
 
 ## Installation
 
-### Cargo Installation
+### Cargo Insttallation
+
+**DEPRECATED**
 
 You can install it using `cargo install` as such:
 ```sh
@@ -40,10 +46,12 @@ But in this case you will have to create config file yourself (see
 
 ### Install Script
 
+**WORKING HERE**
+
 Another way to install `ixwindow` is from github repository. First you have to
 clone it:
 ```sh
-git clone git@github.com:andreykaere/ixwindow.git && cd ixwindow
+git clone https://github.com/mattthhh/ixwindow.git && cd ixwindow
 ```
 If you want the bleeding edge version, switch to `dev` branch.
 
