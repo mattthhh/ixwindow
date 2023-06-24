@@ -142,6 +142,7 @@ impl CoreFeatures<I3Connection, I3Config> for Core<I3Connection, I3Config> {
             IconName::Empty => "",
             IconName::Name(icon_name) => icon_name.as_str()
         };
+        self.monitor.state.curr_x -= (title.len() as i16 / 2) * (config.size() as i16 / 2);
     }
 }
 
