@@ -14,7 +14,7 @@ use x11rb::rust_connection::RustConnection;
 
 use crate::bspwm::BspwmConnection;
 use crate::config::{self, BspwmConfig, Config, I3Config};
-use crate::i3_utils;
+// use crate::i3_utils;
 use crate::wm_connection::WMConnection;
 use crate::x11_utils;
 
@@ -124,15 +124,16 @@ impl CoreFeatures<I3Connection, I3Config> for Core<I3Connection, I3Config> {
     }
 
     fn update_x(&mut self) {
+        /*
         let config = &self.config;
         let desks_num = i3_utils::get_desktops_number(
             &mut self.wm_connection,
             &self.monitor.name,
         );
-
-        self.monitor.state.curr_x = ((config.x() as f32)
-            + config.gap_per_desk * (desks_num as f32))
-            as i16;
+        */
+        // TODO : get X resolution from screen
+        let mid = 1600/2;
+        self.monitor.state.curr_x = mid;
     }
 }
 
@@ -200,10 +201,12 @@ where
             &self.monitor.name,
         );
 
+        let x = curr_x - (size as i16/2);
+
         let icon_id = x11_utils::display_icon(
             &self.x11rb_connection,
             icon_path,
-            curr_x,
+            x,
             y,
             size,
             monitor_name,
