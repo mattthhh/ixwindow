@@ -124,8 +124,8 @@ impl CoreFeatures<I3Connection, I3Config> for Core<I3Connection, I3Config> {
     }
 
     fn update_x(&mut self) {
-        /*
         let config = &self.config;
+        /*
         let desks_num = i3_utils::get_desktops_number(
             &mut self.wm_connection,
             &self.monitor.name,
@@ -133,7 +133,15 @@ impl CoreFeatures<I3Connection, I3Config> for Core<I3Connection, I3Config> {
         */
         // TODO : get X resolution from screen
         let mid = 1600/2;
-        self.monitor.state.curr_x = mid;
+        self.monitor.state.curr_x = mid - (config.size() as i16/2);
+        let state = &self.monitor.state;
+        if state.curr_icon_name.is_none() {
+            return;
+        }
+        let title = match state.curr_icon_name.as_ref().unwrap() {
+            IconName::Empty => "",
+            IconName::Name(icon_name) => icon_name.as_str()
+        };
     }
 }
 
@@ -201,12 +209,10 @@ where
             &self.monitor.name,
         );
 
-        let x = curr_x - (size as i16/2);
-
         let icon_id = x11_utils::display_icon(
             &self.x11rb_connection,
             icon_path,
-            x,
+            curr_x,
             y,
             size,
             monitor_name,
