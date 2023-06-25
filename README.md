@@ -11,51 +11,21 @@ demonstration of what `ixwindow` looks like in action:
 
 The fork improves the module with removing "Empty" where there is no window 
 focused and make the icon the closest to the title when title is in center
-(with maybe a configurable margin next to the title)
+with a configurable margin next to the title
 
 <p align="center">
   <img src="assets/demo.gif" alt="animated" />
 </p>
 
-
-**Note:** basically, it doesn't really depend on polybar itself, it can be used 
-with any other bar as well, you just need to implement the same behavior,
-as polybar's `tail = true`.
-
-## Features
-- Because it is written in Rust, it is blazingly fast
-- Automatic icon generation
-- High quality of displayed icons
-- Flexible configuration of what gets printed
-- Native support for `bspwm` via
-  [`bspc-rs`](https://github.com/andreykaere/bspc-rs) library, which was
-  started with the need for this project
-
 ## Installation
 
-### Cargo Insttallation
-
-**DEPRECATED**
-
-You can install it using `cargo install` as such:
-```sh
-cargo install ixwindow
-```
-But in this case you will have to create config file yourself (see
-`examples/ixwindow.toml` for example configuration).
-
-### Install Script
-
-**WORKING HERE**
-
-Another way to install `ixwindow` is from github repository. First you have to
+The way to install this fork of `ixwindow` is from github repository. First you have to
 clone it:
 ```sh
 git clone https://github.com/mattthhh/ixwindow.git && cd ixwindow
 ```
-If you want the bleeding edge version, switch to `dev` branch.
 
-To install it to your system you just have to run `./install`. To see
+To install it to your system you just have to run `sudo ./install`. To see
 installation options run `./install --help`. 
 
 ## Setting up polybar
@@ -130,8 +100,10 @@ size = 24
 # specified in hex format:
 color = "#RRGGBB"
 
-# Absolute coordinates of the icon in pixels, for example: 
-x = 270
+# Margin next to the title for the icon
+x = 8
+
+# Margin ffrom top of the bar for the icon
 y = 6
 
 # Amound of spaces in the output of the `ixwindow`. This is needed to add
